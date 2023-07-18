@@ -7,12 +7,12 @@ const app = fastify()
 
 app.register(fastifyCookie)
 
-app.addHook('preHandler', async (request, reply) => {
+app.addHook('preHandler', async (request) => {
   console.log(`Prehandles in the global context`)
   console.log(`[${request.method}] ${request.url}`)
 })
 
-app.get('/hello', async (request) => {
+app.get('/hello', async () => {
   return { hello: 'world' }
 })
 
